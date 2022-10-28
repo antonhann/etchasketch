@@ -13,6 +13,9 @@ function changesize(n){
         for (let i = 0; i < n; i++){
             var box = document.createElement('div')
             box.className = 'box'
+            width = (600/n) + 'px'
+            box.style.width = width
+            box.style.height = width
             row.appendChild(box)
         }
         container.appendChild(row)
