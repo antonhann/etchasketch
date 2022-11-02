@@ -1,7 +1,10 @@
 const container = document.querySelector('.container')
 changesize(10)
 function promptz(){
-    var x = parseInt(prompt("enter number: "))
+    do{
+        var x = parseInt(prompt("enter number (1-64): "))
+        console.log(x)
+    } while(x < 0 || x >= 65 || !x)
     changesize(x)
 }
 function changesize(n){
@@ -23,7 +26,7 @@ function changesize(n){
     const boxes = document.querySelectorAll('.box')
     boxes.forEach((box) => {
     box.addEventListener('mouseover', function(){
-        box.style.background = 'red'
+        box.style.background = 'black'
     });
 });
 }
@@ -31,6 +34,28 @@ function changesize(n){
 function cleargrid(){
     const boxes = document.querySelectorAll('.box')
     boxes.forEach((box) => {
-        box.style.background = 'black'
+        box.style.background = 'white'
+        box.addEventListener('mouseover', function(){
+            box.style.background = 'black'
     });
+    });
+    const button = document.querySelector('#random')
+    button.style.background = 'white'
+    
+}
+
+function randomcolor(){
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    const boxes = document.querySelectorAll('.box')
+    boxes.forEach((box) => {
+    box.addEventListener('mouseover', function(){
+        box.style.background = color
+    });
+    });
+    const button = document.querySelector('#random')
+    button.style.background = color
 }
